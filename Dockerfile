@@ -20,6 +20,9 @@ ENV GITHUB_PAT=${GITHUB_PAT}
 # Install remotes and plumber, authenticate GitHub API
 RUN R -e 'Sys.setenv(GITHUB_PAT = Sys.getenv("GITHUB_PAT")); install.packages(c("remotes", "plumber"), repos = "https://cran.r-project.org")'
 
+# Install nbastatR and force installation
+RUN R -e 'Sys.setenv(GITHUB_PAT = Sys.getenv("GITHUB_PAT")); remotes::install_github("abresler/nbastatR", force = TRUE)'
+
 # Set the working directory
 WORKDIR /app
 
@@ -34,4 +37,6 @@ EXPOSE 8000
 
 # Run the Plumber API
 CMD R -e 'pr <- plumber::pr("plumber.R"); pr$run(host="0.0.0.0", port=8000)'
+
+
 
