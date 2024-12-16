@@ -1,0 +1,14 @@
+Package: myapi
+Type: Package
+Title: Airball API
+Version: 0.0.1
+Remotes: 
+    josedv82/airball
+Imports:
+    plumber,
+    airball,
+    shiny
+Description: NBA Schedule and Travel API powered by Airball.
+License: What license it is under
+Encoding: UTF-8
+LazyData: true
