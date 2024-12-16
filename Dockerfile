@@ -13,8 +13,12 @@ RUN apt-get update && apt-get install -y \
     libudunits2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install remotes for GitHub packages and plumber
-RUN R -e 'install.packages(c("remotes", "plumber"), repos = "https://cran.r-project.org")'
+# Set GitHub PAT as an environment variable
+ARG GITHUB_PAT
+ENV GITHUB_PAT=${GITHUB_PAT}
+
+# Install remotes and plumber, authenticate GitHub API
+RUN R -e 'Sys.setenv(GITHUB_PAT = Sys.getenv("GITHUB_PAT")); install.packages(c("remotes", "plumber"), repos = "https://cran.r-project.org")'
 
 # Set the working directory
 WORKDIR /app
@@ -30,3 +34,4 @@ EXPOSE 8000
 
 # Run the Plumber API
 CMD R -e 'pr <- plumber::pr("plumber.R"); pr$run(host="0.0.0.0", port=8000)'
+
