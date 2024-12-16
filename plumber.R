@@ -2,7 +2,12 @@
 library(plumber)
 library(airball)
 
-
+# Example root endpoint
+#* @get /
+#* @serializer unboxedJSON
+function() {
+  list(message = "Welcome to the Airball API! Visit /__docs__/ for Swagger documentation.")
+}
 
 
 ##########################
@@ -25,7 +30,7 @@ library(airball)
 #* @get /nba_travel
 function(start_season = 2018,
          end_season = 2020,
-         team = NULL,
+         team = "",
          return_home = 20,
          phase = "RS,PO",
          flight_speed = 550) {
@@ -82,8 +87,8 @@ function(start_season = 2018,
 #* @get /nba_player_travel
 function(start_season = 2018,
          end_season = 2020,
-         team = NULL,
-         player = NULL,
+         team = "",
+         player = "",
          return_home = 20,
          phase = "RS,PO",
          flight_speed = 550) {
@@ -150,7 +155,7 @@ function(start_season = 2018,
 #* @get /nba_density
 function(start_season = 2018,
          end_season = 2020,
-         team = NULL,
+         team = "",
          return_home = 20,
          phase = "RS,PO",
          flight_speed = 550) {
@@ -274,7 +279,7 @@ function(start_date = "2017-01-01",
 #* @apiTitle NBA Travel Plot API
 #* @apiDescription Returns a PNG plot of NBA flight paths using `nba_travel_plot`.
 
-#* @png
+#* @serializer png
 #* @param width:integer Width of the plot in pixels (default=1200)
 #* @param height:integer Height of the plot in pixels (default=800)
 #* @param start_season:integer Starting season (default=2018)
@@ -310,7 +315,7 @@ function(start_date = "2017-01-01",
 function(start_season = "2018",
          end_season = "2020",
          team = "",
-         season = NULL,
+         season = "",
          return_home = "20",
          phase = "RS,PO",
          flight_speed = "550",
@@ -352,7 +357,7 @@ function(start_season = "2018",
   if (!is.null(season) && nchar(season) > 0) {
     season <- as.integer(season)
   } else {
-    season <- NULL
+    season <- ""
   }
 
   # phase may be multiple values
