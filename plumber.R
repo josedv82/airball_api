@@ -11,6 +11,7 @@ library(airball)
 # Example root endpoint
 #* @get /
 #* @serializer unboxedJSON
+#* @operationId welcomeGet
 function() {
   list(message = "Welcome to the Airball API! Visit /__docs__/ for Swagger documentation.")
 }
@@ -34,6 +35,7 @@ function() {
 #* @param phase:string The phase(s) of the season, comma-separated (e.g. "RS,PO"). Defaults to "RS,PO".
 #* @param flight_speed:integer The flight speed to assume in mph (default = 550)
 #* @get /nba_travel
+#* @operationId nbaTravelGet
 function(start_season = 2018,
          end_season = 2020,
          team = "",
@@ -91,6 +93,7 @@ function(start_season = 2018,
 #* @param phase:string The phase(s) of the season, comma-separated (e.g. "RS,PO"). Defaults to "RS,PO".
 #* @param flight_speed:integer The flight speed to assume in mph (default = 450)
 #* @get /nba_player_travel
+#* @operationId nbaPlayerTravelGet
 function(start_season = 2018,
          end_season = 2020,
          team = "",
@@ -159,6 +162,7 @@ function(start_season = 2018,
 #* @param phase:string The phase(s) of the season, comma-separated (e.g. "RS,PO"). Defaults to "RS,PO".
 #* @param flight_speed:integer The flight speed to assume in mph (default = 550)
 #* @get /nba_density
+#* @operationId nbaDensityGet
 function(start_season = 2018,
          end_season = 2020,
          team = "",
@@ -221,6 +225,7 @@ function(start_season = 2018,
 #* @param player:string Player name (optional)
 #* @param team:string Team nickname (optional), for example "Celtics" for Boston Celtics. Default logic explained below.
 #* @get /nba_injuries
+#* @operationId nbaInjuriesGet
 function(start_date = "2017-01-01",
          end_date = "2018-01-01",
          player = "",
@@ -318,6 +323,7 @@ function(start_date = "2017-01-01",
 #* @param panel_background_fill:string (default="transparent")
 #* @param ncolumns:integer (default=6)
 #* @get /nba_travel_plot
+#* @operationId nbaTravelPlotGet
 function(start_season = "2018",
          end_season = "2020",
          team = "",
