@@ -36,7 +36,8 @@ RUN R -e 'remotes::install_deps(dependencies=TRUE, repos="https://cran.r-project
 EXPOSE 8000
 
 # Run the Plumber API on port 8000
-CMD R -e 'pr <- plumber::pr("plumber.R"); pr$setDocsCallback(function(spec) {spec$servers[[1]]$url <- "https://airball-api.onrender.com"; spec}); pr$run(host="0.0.0.0", port=8000)'
+CMD R -e 'pr <- plumber::pr("plumber.R"); pr$run(host="0.0.0.0", port=8000)'
+
 
 
 
