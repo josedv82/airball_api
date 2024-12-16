@@ -3,10 +3,12 @@ Type: Package
 Title: Airball API
 Version: 0.0.1
 Remotes: 
-    josedv82/airball
+    josedv82/airball,
+    abresler/nbastatR
 Imports:
     plumber,
     airball,
+    nbastatR,
     shiny
 Description: NBA Schedule and Travel API powered by Airball.
 License: MIT
