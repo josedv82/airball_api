@@ -5,6 +5,7 @@ library(airball)
 
 #* @apiTitle Airball API
 #* @apiDescription An API to interact with Airball and package and retrieve NBA schedule and travel metrics.
+#* @apiServer https://airball-api.onrender.com
 
 
 
