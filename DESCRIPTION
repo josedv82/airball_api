@@ -1,15 +1,15 @@
 Package: myapi
 Type: Package
 Title: Airball API
-Version: 0.0.1
-Remotes: 
+Version: 0.1.0
+Remotes:
     josedv82/airball,
     abresler/nbastatR
 Imports:
     plumber,
     airball,
     nbastatR,
-    shiny
+    dplyr
 Description: NBA Schedule and Travel API powered by Airball.
 License: MIT
 Encoding: UTF-8
