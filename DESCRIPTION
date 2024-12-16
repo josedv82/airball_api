@@ -9,6 +9,6 @@ Imports:
     airball,
     shiny
 Description: NBA Schedule and Travel API powered by Airball.
-License: What license it is under
+License: MIT
 Encoding: UTF-8
 LazyData: true
