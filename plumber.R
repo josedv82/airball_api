@@ -2,6 +2,12 @@
 library(plumber)
 library(airball)
 
+
+#* @apiTitle Airball API
+#* @apiDescription An API to interact with Airball and package and retrieve NBA schedule and travel metrics.
+
+
+
 # Example root endpoint
 #* @get /
 #* @serializer unboxedJSON
