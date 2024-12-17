@@ -1,6 +1,10 @@
 library(plumber)
 library(airball)
 
+
+# Increase connection buffer size to avoid vroom errors
+  Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 2)
+
 # Top-level API metadata
 #* @apiTitle Airball API
 #* @apiDescription An API to interact with the 'airball' package and retrieve NBA schedule, travel metrics, player data, density metrics, injuries, and visualization plots.
