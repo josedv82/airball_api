@@ -35,8 +35,9 @@ RUN R -e 'remotes::install_deps(dependencies=TRUE, repos="https://cran.r-project
 # Expose the port that Plumber will use
 EXPOSE 8000
 
-# Run the Plumber API on port 8000
-CMD R -e 'pr <- plumber::pr("plumber.R"); pr$run(host="0.0.0.0", port=8000)'
+# Run the Plumber API on the dynamically assigned port
+CMD R -e 'pr <- plumber::pr("plumber.R"); pr$run(host="0.0.0.0", port=as.numeric(Sys.getenv("PORT", "8000")))'
+
 
 
 
